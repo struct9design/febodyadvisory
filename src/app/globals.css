@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/* Default palette, radii and shadows are wiped so only brand tokens exist. */
+@theme {
+  --color-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --inset-shadow-*: initial;
+  --drop-shadow-*: initial;
+
+  --color-ink: #16140f;
+  --color-ivory: #f3f0e8;
+  --color-paper: #fbf9f4;
+  --color-sand: #eae5d8;
+  --color-line: #d9d3c4;
+  --color-line-soft: #e6e1d5;
+  --color-muted: #5e584c;
+  --color-muted-2: #a39c8e;
+  --color-gold: #c9a44c;
+  --color-gold-light: #e2c47a;
+  --color-gold-deep: #b8933f;
+  --color-bronze: #7d6021;
+  --color-accent-text: #8f7130;
+
+  --color-ink-soft: #3a362e;
+  --color-ink-field: #1e1b16;
+  --color-ink-hover: #25221c;
+  --color-ink-active: #2a261f;
+  --color-ink-line: #2e2a23;
+  --color-on-ink-muted: #b8b2a6;
+  --color-on-ink-dim: #8a8478;
+  --color-on-ink-faint: #6a655b;
+  --color-field: #ffffff;
+  --color-grid: #e0dacc;
+  --color-grid-soft: #eeeae0;
+
+  --color-ok: #4f6b45;
+  --color-ok-bg: #e3e6d6;
+  --color-warn: #7d6021;
+  --color-warn-bg: #efe6cf;
+  --color-warn-line: #d8c695;
+  --color-danger: #9a3b2e;
+  --color-danger-bg: #f1ddd6;
+  --color-danger-line: #d9b3a8;
+
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --radius-full: 9999px;
+
+  --font-sans: var(--font-work-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-antonio), "Arial Narrow", sans-serif;
+
+  --tracking-label: 0.18em;
+  --tracking-eyebrow: 0.22em;
+  --tracking-button: 0.14em;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-ivory);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-gold-deep);
+    outline-offset: 2px;
+  }
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
