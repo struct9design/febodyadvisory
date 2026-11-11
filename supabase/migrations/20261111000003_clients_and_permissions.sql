@@ -173,9 +173,7 @@ create policy "profiles: client sees own team" on public.profiles
   ));
 
 -- Tighten phase-1 "staff read": coaches/nutritionists only see colleagues and their own clients.
-drop policy "profiles: staff read" on public.profiles;
-create policy "profiles: staff read" on public.profiles
-  for select to authenticated
+alter policy "profiles: staff read" on public.profiles
   using (
     private.auth_role() in ('admin', 'billing')
     or (private.is_staff() and profiles.role <> 'client')
